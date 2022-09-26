@@ -30,6 +30,7 @@ class AuthorizationActivity : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var checkPassword: EditText
     private lateinit var textError: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authorization)
@@ -86,7 +87,7 @@ class AuthorizationActivity : AppCompatActivity() {
             textError.text =
                 "* пароль должен содержать хотя бы одну латинскую букву в нижнем и в верхнем регистре, содержать хотя бы 1 цифру, быть не короче 8 символов"
             return false
-        } else if (password.text.toString().length != checkPassword.text.toString().length) {
+        } else if (password.text.toString().length != checkPassword.text.toString().length || password.text.toString() != checkPassword.text.toString()) {
             Toast.makeText(this, "введённые пароли не совпадают!", Toast.LENGTH_LONG).show()
             return false
         } else return true
